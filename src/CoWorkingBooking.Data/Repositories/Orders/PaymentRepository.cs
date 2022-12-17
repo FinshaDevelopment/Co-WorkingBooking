@@ -1,5 +1,6 @@
 ﻿using CoWorkingBooking.Data.Contexts;
-using CoWorkingBooking.Domain.Entities.Users;
+using CoWorkingBooking.Data.IRepositories.Orders;
+using CoWorkingBooking.Domain.Entities.Orders;
 
 namespace CoWorkingBooking.Data.Repositories.Orders
 {

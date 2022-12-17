@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Data", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Service", "src\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj", "{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Api", "src\CoWorkingBooking.Api\CoWorkingBooking.Api.csproj", "{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Api", "src\CoWorkingBooking.Api\CoWorkingBooking.Api.csproj", "{F3C0A2B8-AC05-4F74-8B83-F923D358245E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,15 @@ Global
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C0A2B8-AC05-4F74-8B83-F923D358245E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C0A2B8-AC05-4F74-8B83-F923D358245E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C0A2B8-AC05-4F74-8B83-F923D358245E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C0A2B8-AC05-4F74-8B83-F923D358245E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +48,7 @@ Global
 		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
+		{F3C0A2B8-AC05-4F74-8B83-F923D358245E} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{4A3C3AB5-3C12-44BB-B7C9-EE457B59F591} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

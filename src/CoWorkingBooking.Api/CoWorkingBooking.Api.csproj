@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
+
   </ItemGroup>
 
   <ItemGroup>
