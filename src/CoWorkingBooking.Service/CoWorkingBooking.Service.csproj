@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

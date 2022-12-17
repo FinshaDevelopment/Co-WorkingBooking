@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Service.Attributes.User
 {
@@ -20,5 +16,6 @@ namespace CoWorkingBooking.Service.Attributes.User
             }
             return new ValidationResult("Password should contain at least 8 characters," +
                                                     " should contain at least on letter and digit");
-        } }
+        }
+    }
 }

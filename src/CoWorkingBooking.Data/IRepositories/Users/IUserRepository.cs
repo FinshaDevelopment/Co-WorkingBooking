@@ -1,8 +1,6 @@
-﻿using CoWorkingBooking.Data.IRepositories;
-using CoWorkingBooking.Domain.Entities.Users;
 using System.Threading.Tasks;
 
-namespace CoWorkingBooking.Data.IRepositories.Users
+namespace RaqamliAvlod.DataAccess.Interfaces.Users
 {
     public interface IUserRepository : IGenericRepository<User>
     {
