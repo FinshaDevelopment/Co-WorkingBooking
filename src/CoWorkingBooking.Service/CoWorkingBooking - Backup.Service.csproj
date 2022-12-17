@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj" />
+    <Folder Include="Views\CoW\" />
   </ItemGroup>
 
 </Project>

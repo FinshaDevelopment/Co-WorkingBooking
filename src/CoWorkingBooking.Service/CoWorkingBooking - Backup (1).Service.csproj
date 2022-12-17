@@ -8,4 +8,8 @@
     <ProjectReference Include="..\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+
 </Project>
