@@ -1,6 +1,6 @@
-﻿namespace CoWorkingBooking.Data.IRepositories.Orders
+namespace CoWorkingBooking.Data.IRepositories.Orders
 {
-    internal class IOrderRepository
+    public interface IOrderRepository : IGenericRepository<Order>
     {
     }
 }
