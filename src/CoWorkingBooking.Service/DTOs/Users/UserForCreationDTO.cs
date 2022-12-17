@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoWorkingBooking.Service.Attributes.User;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,11 +14,11 @@ namespace CoWorkingBooking.Service.DTOs.Users
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
+        [Required, Username]
         public string Username { get; set; }
-        [Required]
+        [Required, Password]
         public string Password { get; set; }
-        [Required]
+        [Required, PhoneNumber]
         public string PhoneNumber { get; set; }
         [Required]
         public string Email { get; set; }
