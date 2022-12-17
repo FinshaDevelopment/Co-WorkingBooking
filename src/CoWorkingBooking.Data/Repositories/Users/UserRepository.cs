@@ -1,6 +1,5 @@
 
 using CoWorkingBooking.Data.Contexts;
-using CoWorkingBooking.Data.Interfaces.Users;
 using CoWorkingBooking.Data.Repositories;
 using CoWorkingBooking.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +19,6 @@ namespace RaqamliAvlod.DataAccess.Repositories.Users
 
         public async Task<User> GetByPhonNumberAsync(string phoneNumber)
             => await dbContext.Users.FirstOrDefaultAsync(user => user.PhoneNumber == phoneNumber);
-        
+
     }
 }
