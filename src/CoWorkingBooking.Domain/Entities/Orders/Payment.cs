@@ -1,8 +1,7 @@
 ﻿using CoWorkingBooking.Domain.Commons;
-using CoWorkingBooking.Domain.Entities.Orders;
 using CoWorkingBooking.Domain.Enums;
 
-namespace CoWorkingBooking.Domain.Entities.Users
+namespace CoWorkingBooking.Domain.Entities.Orders
 {
     public class Payment : Auditable
     {
