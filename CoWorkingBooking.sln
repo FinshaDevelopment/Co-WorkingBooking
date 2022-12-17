@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Domain", "src\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj", "{5FD9B536-B718-45CE-B753-257681DD87FC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D63B1BBF-031A-41B3-9E48-A30C4696FC17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoWorkingBooking.Data", "CoWorkingBooking.Data\CoWorkingBooking.Data.csproj", "{7B2EC3C2-838E-43D0-9F5E-5ACC548BD207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Domain", "src\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj", "{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5FD9B536-B718-45CE-B753-257681DD87FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FD9B536-B718-45CE-B753-257681DD87FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FD9B536-B718-45CE-B753-257681DD87FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FD9B536-B718-45CE-B753-257681DD87FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B2EC3C2-838E-43D0-9F5E-5ACC548BD207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B2EC3C2-838E-43D0-9F5E-5ACC548BD207}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B2EC3C2-838E-43D0-9F5E-5ACC548BD207}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B2EC3C2-838E-43D0-9F5E-5ACC548BD207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46002585-719C-4E1F-AB70-94418033688E}
