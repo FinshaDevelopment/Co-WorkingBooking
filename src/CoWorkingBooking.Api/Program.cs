@@ -1,4 +1,5 @@
 using CoWorkingBooking.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
