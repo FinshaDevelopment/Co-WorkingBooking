@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Data", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Service", "src\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj", "{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoWorkingBooking.Api", "CoWorkingBooking.Api\CoWorkingBooking.Api.csproj", "{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,7 +37,6 @@ Global
 		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{4CB91D82-7D3B-4857-96ED-CF4F7F9FAB5B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
-		{4A7504CB-AE4D-4743-9D21-AC1C4EE7585A} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46002585-719C-4E1F-AB70-94418033688E}
