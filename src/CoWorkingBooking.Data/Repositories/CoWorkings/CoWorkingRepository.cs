@@ -1,6 +1,9 @@
-﻿namespace CoWorkingBooking.Data.Repositories.CoWorkings
+namespace CoWorkingBooking.Data.Repositories.CoWorkings
 {
-    internal class CoWorkingRepository
+    public class CoWorkingRepository : GenericRepository<CoWorking>, ISeatRepository
     {
+        public CoWorkingRepository(CoWorkingDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }

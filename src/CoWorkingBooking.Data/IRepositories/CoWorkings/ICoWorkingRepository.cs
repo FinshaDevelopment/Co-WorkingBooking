@@ -1,6 +1,6 @@
-﻿namespace CoWorkingBooking.Data.IRepositories.CoWorkings
+namespace CoWorkingBooking.Data.IRepositories.CoWorkings
 {
-    internal interface ICoWorkingRepository
+    public interface ICoWorkingRepository : IGenericRepository<CoWorking>
     {
     }
 }

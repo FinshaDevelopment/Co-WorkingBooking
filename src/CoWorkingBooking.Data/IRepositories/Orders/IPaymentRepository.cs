@@ -1,6 +1,6 @@
-﻿namespace CoWorkingBooking.Data.IRepositories.Orders
+namespace CoWorkingBooking.Data.IRepositories.Orders
 {
-    internal interface Interface1
+    public interface IPaymentRepository : IGenericRepository<Payment>
     {
     }
 }
