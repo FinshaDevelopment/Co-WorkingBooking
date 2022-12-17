@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
