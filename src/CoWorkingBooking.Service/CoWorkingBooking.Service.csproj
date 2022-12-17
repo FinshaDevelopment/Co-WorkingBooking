@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj" />
+    <PackageReference Include="Mapster" Version="6.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
     <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
