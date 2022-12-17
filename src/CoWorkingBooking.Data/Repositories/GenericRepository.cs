@@ -36,7 +36,7 @@ namespace CoWorkingBooking.Data.Repositories
         }
 
         public IQueryable<T> GetAll(
-            Expression<Func<T, bool>> expression,
+            Expression<Func<T, bool>> expression = null,
             string[] includes = null,
             bool isTracking = true)
         {

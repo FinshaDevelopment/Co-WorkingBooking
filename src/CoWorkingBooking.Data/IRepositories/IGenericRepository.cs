@@ -11,7 +11,7 @@ namespace CoWorkingBooking.Data.IRepositories
         T Update(T entity);
         ValueTask<bool> DeleteAsync(long id);
         ValueTask<T> GetAsync(Expression<Func<T, bool>> expression, string[] includes = null);
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression,
+        IQueryable<T> GetAll(Expression<Func<T, bool>> expression = null,
             string[] includes = null,
             bool isTracking = true);
     }

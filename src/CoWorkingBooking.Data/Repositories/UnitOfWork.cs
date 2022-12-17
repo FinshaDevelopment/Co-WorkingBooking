@@ -22,7 +22,6 @@ namespace CoWorkingBooking.Data.Repositories
             Branches = new BranchRepository(dbContext);
             Orders = new OrderRepository(dbContext);
             Seats = new SeatRepository(dbContext);
-            Payments = new PaymentRepository(dbContext);
         }
 
         public IUserRepository Users { get; }
@@ -35,7 +34,6 @@ namespace CoWorkingBooking.Data.Repositories
 
         public ISeatRepository Seats { get; }
 
-        public IPaymentRepository Payments { get; }
 
 
         public async ValueTask SaveChangesAsync()
