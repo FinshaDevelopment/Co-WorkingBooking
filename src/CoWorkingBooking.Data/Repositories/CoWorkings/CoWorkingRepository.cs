@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoWorkingBooking.Data.IRepositories.CoWorkings
+namespace CoWorkingBooking.Data.Repositories.CoWorkings
 {
-    internal interface IBranchRepositry
+    internal class CoWorkingRepository
     {
     }
 }

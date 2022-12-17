@@ -1,5 +1,6 @@
 ﻿using CoWorkingBooking.Data.Contexts;
 using CoWorkingBooking.Data.IRepositories;
+using CoWorkingBooking.Domain.Commons;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -8,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Data.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : Auditable
     {
-        private readonly CoWorkingDbContext dbContext;
-        private readonly DbSet<T> dbSet;
+        protected readonly CoWorkingDbContext dbContext;
+        protected readonly DbSet<T> dbSet;
 
         public GenericRepository(CoWorkingDbContext dbContext)
         {
@@ -22,9 +23,9 @@ namespace CoWorkingBooking.Data.Repositories
         public async ValueTask<T> CreateAsync(T entity) =>
             (await dbContext.AddAsync(entity)).Entity;
 
-        public async ValueTask<bool> DeleteAsync(Expression<Func<T, bool>> expression)
+        public async ValueTask<bool> DeleteAsync(long id)
         {
-            var entity = await GetAsync(expression);
+            var entity = await GetAsync(t => t.Id == id);
 
             if (entity == null)
                 return false;
