@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D63B1BBF-031
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Domain", "src\CoWorkingBooking.Domain\CoWorkingBooking.Domain.csproj", "{6A2E4D16-20F0-4D7F-9815-9E544DD9309B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoWorkingBooking.Data", "src\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj", "{EBE74E04-C443-42F6-B592-5A73ED9A7662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Data", "src\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj", "{EBE74E04-C443-42F6-B592-5A73ED9A7662}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoWorkingBooking.Service", "src\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj", "{D96C7B27-07F6-4B5A-900A-C29A98E9462E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96C7B27-07F6-4B5A-900A-C29A98E9462E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96C7B27-07F6-4B5A-900A-C29A98E9462E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96C7B27-07F6-4B5A-900A-C29A98E9462E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96C7B27-07F6-4B5A-900A-C29A98E9462E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6A2E4D16-20F0-4D7F-9815-9E544DD9309B} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 		{EBE74E04-C443-42F6-B592-5A73ED9A7662} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
+		{D96C7B27-07F6-4B5A-900A-C29A98E9462E} = {D63B1BBF-031A-41B3-9E48-A30C4696FC17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46002585-719C-4E1F-AB70-94418033688E}
