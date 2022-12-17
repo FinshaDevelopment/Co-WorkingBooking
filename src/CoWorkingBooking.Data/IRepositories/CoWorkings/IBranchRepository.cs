@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Data.IRepositories.CoWorkings
 {
-    public interface IBranchRepositoryd : IGenericRepository<Branch>
+    public interface IBranchRepository : IGenericRepository<Branch>
     {
     }
 }
