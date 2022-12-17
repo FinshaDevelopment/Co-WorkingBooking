@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CoWorkingBooking.Domain.Entities.Users;
+﻿using CoWorkingBooking.Domain.Entities.CoWorkings;
 using CoWorkingBooking.Domain.Entities.Orders;
-using CoWorkingBooking.Domain.Entities.CoWorkings;
+using CoWorkingBooking.Domain.Entities.Users;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoWorkingBooking.Data.Contexts
 {
@@ -9,7 +9,7 @@ namespace CoWorkingBooking.Data.Contexts
     {
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Payment> Payments  { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<CoWorking> CoWorkings { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
