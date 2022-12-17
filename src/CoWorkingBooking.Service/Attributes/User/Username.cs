@@ -9,7 +9,7 @@ namespace CoWorkingBooking.Service.Attributes.User
 {
     public class Username : ValidationAttribute
     {
-        public override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value is string login &&
                 login.All(c => char.IsDigit(c) ||

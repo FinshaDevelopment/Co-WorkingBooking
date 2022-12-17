@@ -9,7 +9,7 @@ namespace CoWorkingBooking.Service.Attributes.User
 {
     public class Password : ValidationAttribute
     {
-        public override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value is string password &&
                 password.Length >= 8 &&
