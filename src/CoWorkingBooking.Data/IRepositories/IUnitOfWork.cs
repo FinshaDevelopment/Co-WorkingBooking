@@ -12,7 +12,6 @@ namespace CoWorkingBooking.Data.IRepositories
         IBranchRepository Branches { get; }
         IOrderRepository Orders { get; }
         ISeatRepository Seats { get; }
-        IPaymentRepository Payments { get; }
 
         ValueTask SaveChangesAsync();
     }

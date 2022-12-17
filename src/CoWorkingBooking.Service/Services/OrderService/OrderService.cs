@@ -45,14 +45,14 @@ namespace orderBooking.Service.Services.Orderervice
 
         public async ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(PaginationParams @params = null, Expression<Func<Order, bool>> expression = null)
         {
-            var Order = unitOfWork.Orders.GetAll(expression: expression, new string[] { "User", "order" }, false);
+            var Order = unitOfWork.Orders.GetAll(expression: expression, new string[] { "Order", "Seat" }, false);
 
             return (await Order.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<OrderForViewDTO>>();
         }
 
         public async ValueTask<OrderForViewDTO> GetAsync(Expression<Func<Order, bool>> expression)
         {
-            var order = (await unitOfWork.Orders.GetAsync(expression, new string[] { "User", "order" })).Adapt<OrderForViewDTO>();
+            var order = (await unitOfWork.Orders.GetAsync(expression, new string[] { "Order", "Seat" })).Adapt<OrderForViewDTO>();
             return order ?? throw new CoWorkingException(404, "Order not foud");
         }
 
