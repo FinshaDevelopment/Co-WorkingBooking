@@ -1,4 +1,5 @@
-﻿using CoWorkingBooking.Service.DTOs.Users;
+﻿using CoWorkingBooking.Domain.Entities.Users;
+using CoWorkingBooking.Service.DTOs.Users;
 using CoWorkingBooking.Service.Interfaces.Users;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -29,5 +30,9 @@ namespace CoWorkingBooking.Api.Controllers
                 token
             });
         }
+
+        [HttpPost("register")]
+        public async ValueTask<ActionResult<User>> CreateAsync(UserForCreationDTO dto) =>
+           Ok(await userService.CreateAsync(dto));
     }
 }

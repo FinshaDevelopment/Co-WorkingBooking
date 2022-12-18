@@ -21,14 +21,6 @@ namespace CoWorkingBooking.Api.Controllers
         {
             this.userService = userService;
         }
-
-        /// <summary>
-        /// Create new user
-        /// </summary>
-        [HttpPost]
-        public async ValueTask<ActionResult<User>> CreateAsync(UserForCreationDTO dto) =>
-            Ok(await userService.CreateAsync(dto));
-
         /// <summary>
         /// Update role 
         /// </summary>

@@ -1,3 +1,4 @@
+using CoWorkingBooking.Api.BackgroundServices;
 using CoWorkingBooking.Api.Extensions;
 using CoWorkingBooking.Api.Middlewares;
 using CoWorkingBooking.Data.Contexts;
@@ -22,6 +23,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
 builder.Services.AddControllers();
+
+builder.Services.AddHostedService<SeatBackgroundService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<CoWorkingDbContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
