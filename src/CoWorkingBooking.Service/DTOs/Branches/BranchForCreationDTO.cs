@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CoWorkingBooking.Service.DTOs.Branchs
+namespace CoWorkingBooking.Service.DTOs.Branches
 {
     public class BranchForCreationDTO
     {
