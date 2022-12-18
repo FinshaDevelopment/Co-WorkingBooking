@@ -2,7 +2,6 @@
 using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Domain.Entities.Orders;
 using CoWorkingBooking.Service.DTOs.Orders;
-using CoWorkingBooking.Service.DTOs.Users;
 using CoWorkingBooking.Service.Exceptions;
 using CoWorkingBooking.Service.Extensions;
 using CoWorkingBooking.Service.Helpers;
@@ -21,7 +20,6 @@ namespace orderBooking.Service.Services.Orderervice
     public class OrderService : IOrderService
     {
         private readonly IUnitOfWork unitOfWork;
-
         public OrderService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -30,8 +28,18 @@ namespace orderBooking.Service.Services.Orderervice
         public async ValueTask<OrderForViewDTO> CreateAsync(OrderForCreationDTO orderForCreationDTO)
         {
             if (await unitOfWork.Users.GetAsync(u => u.Id == HttpContextHelper.UserId) is null)
-                throw new CoWorkingException(404, "Order not found");
+                throw new CoWorkingException(404, "User not found");
 
+            var existSeats = await unitOfWork.Seats.GetAsync(o => o.Id == orderForCreationDTO.SeatId);
+
+            if (existSeats is null)
+                throw new CoWorkingException(404,"Seat not found");
+
+            existSeats.FromDate = orderForCreationDTO.FromDate;
+            existSeats.Time = orderForCreationDTO.Time;
+
+            unitOfWork.Seats.Update(existSeats);
+            
             var order = await unitOfWork.Orders.CreateAsync(orderForCreationDTO.Adapt<Order>());
             await unitOfWork.SaveChangesAsync();
             return order.Adapt<OrderForViewDTO>();

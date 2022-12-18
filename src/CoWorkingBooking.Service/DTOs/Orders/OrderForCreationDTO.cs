@@ -10,6 +10,6 @@ namespace CoWorkingBooking.Service.DTOs.Orders
         [Required]
         public DateTime FromDate { get; set; }
         [Required]
-        public DateTime ToDate { get; set; }
+        public TimeSpan Time { get; set; }
     }
 }

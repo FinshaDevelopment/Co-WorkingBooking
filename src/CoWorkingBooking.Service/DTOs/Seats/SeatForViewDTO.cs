@@ -13,6 +13,14 @@ namespace CoWorkingBooking.Service.DTOs.Seats
         public int Number { get; set; }
         public long CoworkingId { get; set; }
         public CoWorkingForViewDTO CoWorking { get; set; }
-        public bool IsBooked { get; set; }
+        public DateTime FromDate { get; set; }
+        public TimeSpan Time { get; set; }
+        public bool IsBooked
+        {
+            get
+            {
+                return FromDate + Time < DateTime.UtcNow;
+            }
+        }
     }
 }

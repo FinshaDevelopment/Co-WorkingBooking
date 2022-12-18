@@ -24,7 +24,6 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 builder.Services.AddControllers();
 
-builder.Services.AddHostedService<SeatBackgroundService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<CoWorkingDbContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

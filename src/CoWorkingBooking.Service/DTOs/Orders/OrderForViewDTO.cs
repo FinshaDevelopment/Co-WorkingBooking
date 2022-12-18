@@ -16,6 +16,6 @@ namespace CoWorkingBooking.Service.DTOs.Orders
         public long SeatId { get; set; }
         public SeatForViewDTO Seat { get; set; }
         public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public TimeSpan Time { get; set; }
     }
 }

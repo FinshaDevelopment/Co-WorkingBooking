@@ -1,4 +1,5 @@
 ﻿using CoWorkingBooking.Domain.Commons;
+using System;
 
 namespace CoWorkingBooking.Domain.Entities.CoWorkings
 {
@@ -7,6 +8,7 @@ namespace CoWorkingBooking.Domain.Entities.CoWorkings
         public int Number { get; set; }
         public long CoworkingId { get; set; }
         public CoWorking CoWorking { get; set; }
-        public bool IsBooked { get; set; }
+        public DateTime FromDate { get; set; }
+        public TimeSpan Time { get; set; }
     }
 }

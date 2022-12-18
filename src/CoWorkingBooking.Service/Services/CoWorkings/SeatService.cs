@@ -25,14 +25,35 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
 
         public async ValueTask<SeatForViewDTO> CreateAsync(SeatForCreationDTO seatForCreationDTO)
         {
+            var coWorking = await unitOfWork.CoWorkings.GetAsync(c => c.Id == seatForCreationDTO.CoworkingId);
+
+            if (coWorking is null)
+                throw new CoWorkingException(404,"coWorking not found");
+
+            coWorking.NumberOfSeats++;
+            
+            unitOfWork.CoWorkings.Update(coWorking);
             var seat = await unitOfWork.Seats.CreateAsync(seatForCreationDTO.Adapt<Seat>());
+
             await unitOfWork.SaveChangesAsync();
             return seat.Adapt<SeatForViewDTO>();
         }
 
         public async ValueTask<bool> DeleteAsync(long id)
         {
+            var seat = await unitOfWork.Seats.GetAsync(c => c.Id == id);
+
+            if (seat is null)
+                throw new CoWorkingException(404,"Seat not found");
+            
+            var coWorking = await unitOfWork.CoWorkings.GetAsync(c => c.Id == seat.CoworkingId);
+
+            coWorking.NumberOfSeats--;
+            
+            unitOfWork.CoWorkings.Update(coWorking);
+
             var isDeleted = await unitOfWork.Seats.DeleteAsync(id);
+            
             await unitOfWork.SaveChangesAsync();
             return isDeleted ? true : throw new CoWorkingException(404, "Seat not found");
         }
@@ -52,13 +73,24 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
 
         public async ValueTask<SeatForViewDTO> UpdateAsync(long id, SeatForCreationDTO seatForCreationDTO)
         {
-            var seat = await unitOfWork.CoWorkings.GetAsync(o => o.Id == id);
+            var coWorking = await unitOfWork.CoWorkings.GetAsync(c => c.Id == seatForCreationDTO.CoworkingId);
 
-            if (seatForCreationDTO is null)
+            
+            var seat = await unitOfWork.Seats.GetAsync(o => o.Id == id);
+
+            if (seat is null)
                 throw new CoWorkingException(404, "Seat not found");
 
+            if (coWorking is null)
+                throw new CoWorkingException(404, "coWorking not found");
+
+            if (seat.CoworkingId != seatForCreationDTO.CoworkingId)
+                coWorking.NumberOfSeats--;
+
             seat.UpdatedAt = DateTime.UtcNow;
-            seat = unitOfWork.CoWorkings.Update(seatForCreationDTO.Adapt(seat));
+
+            unitOfWork.CoWorkings.Update(coWorking);
+            seat = unitOfWork.Seats.Update(seatForCreationDTO.Adapt(seat));
 
             await unitOfWork.SaveChangesAsync();
 

@@ -13,7 +13,7 @@ namespace CoWorkingBooking.Domain.Entities.Orders
         public long SeatId { get; set; }
         public Seat Seat { get; set; }
         public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public TimeSpan Time { get; set; }
         public PaymentType Type { get; set; }
         public decimal TotalPrice { get; set; }
     }
