@@ -32,7 +32,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// Get all Co-Workinges
         /// </summary>
         [HttpGet]
-        public async ValueTask<IActionResult> GetAllAsync([FromBody] PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
         /// <summary>

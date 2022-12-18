@@ -31,7 +31,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// Get all braanches
         /// </summary>
         [HttpGet]
-        public async ValueTask<IActionResult> GetAllAsync([FromBody]PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromQuery]PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <summary>
         /// Update branch
         /// </summary>
-        [HttpPut("{id}"), Authorize(CustomRoles.ADMIN_ROLE)]
+        [HttpPut("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id,[FromBody] BranchForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));
 
