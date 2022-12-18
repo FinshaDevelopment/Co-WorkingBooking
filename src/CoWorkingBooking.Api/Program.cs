@@ -1,4 +1,5 @@
 using CoWorkingBooking.Api.Extensions;
+using CoWorkingBooking.Api.Middlewares;
 using CoWorkingBooking.Data.Contexts;
 using CoWorkingBooking.Domain.Enums;
 using CoWorkingBooking.Service.Helpers;
@@ -62,6 +63,8 @@ if (app.Environment.IsDevelopment())
 
 if (app.Services.GetService<IHttpContextAccessor>() != null)
     HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
