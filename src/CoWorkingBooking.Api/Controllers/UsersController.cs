@@ -67,7 +67,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpPost("password"), Authorize(Roles = CustomRoles.USER_ROLE)]
+        [HttpPatch("password"), Authorize(Roles = CustomRoles.USER_ROLE)]
         public async ValueTask<ActionResult<User>> ChangePasswordAsync(UserForChangePasswordDTO userForChangePassword) =>
             Ok(await userService.ChangePasswordAsync(userForChangePassword));
 
