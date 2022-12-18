@@ -1,6 +1,7 @@
 ﻿using CoWorkingBooking.Domain.Commons;
 using CoWorkingBooking.Domain.Entities.CoWorkings;
 using CoWorkingBooking.Domain.Entities.Users;
+using CoWorkingBooking.Domain.Enums;
 using System;
 
 namespace CoWorkingBooking.Domain.Entities.Orders
@@ -13,5 +14,7 @@ namespace CoWorkingBooking.Domain.Entities.Orders
         public Seat Seat { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
+        public PaymentType Type { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

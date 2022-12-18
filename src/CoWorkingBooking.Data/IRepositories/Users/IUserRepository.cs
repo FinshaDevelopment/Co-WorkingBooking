@@ -1,13 +1,14 @@
-﻿using RaqamliAvlod.Domain.Entities.Users;
+using CoWorkingBooking.Data.IRepositories;
+using CoWorkingBooking.Domain.Entities.Users;
+using System.Threading.Tasks;
 
-namespace RaqamliAvlod.DataAccess.Interfaces.Users
+namespace CoWorkingBooking.Data.IRepositories.Users
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        public Task<User?> GetByEmailAsync(string email);
 
-        public Task<User?> GetByUsernameAsync(string username);
+        public ValueTask<User> GetByUsernameAsync(string username);
 
-        public Task<User?> GetByPhonNumberAsync(string phoneNumber);
+        public ValueTask<User> GetByPhoneNumberAsync(string phoneNumber);
     }
 }

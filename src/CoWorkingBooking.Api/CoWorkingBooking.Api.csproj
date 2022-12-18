@@ -15,7 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
+    <ProjectReference Include="..\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

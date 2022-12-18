@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CoWorkingBooking.Domain.Entities.Orders;
 
 namespace CoWorkingBooking.Data.IRepositories.Orders
 {
-    internal class IOrderRepository
+    public interface IOrderRepository : IGenericRepository<Order>
     {
     }
 }

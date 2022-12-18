@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CoWorkingBooking.Domain.Entities.CoWorkings;
 
 namespace CoWorkingBooking.Data.IRepositories.CoWorkings
 {
-    internal interface ICoWorkingRepository
+    public interface ICoWorkingRepository : IGenericRepository<CoWorking>
     {
     }
 }

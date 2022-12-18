@@ -1,6 +1,5 @@
-
 using CoWorkingBooking.Data.Contexts;
-using CoWorkingBooking.Data.Interfaces.Users;
+using CoWorkingBooking.Data.IRepositories.Users;
 using CoWorkingBooking.Data.Repositories;
 using CoWorkingBooking.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -15,11 +14,10 @@ namespace RaqamliAvlod.DataAccess.Repositories.Users
 
         }
 
-        public async Task<User> GetByUsernameAsync(string username)
+        public async ValueTask<User> GetByUsernameAsync(string username)
             => await dbContext.Users.FirstOrDefaultAsync(user => user.Username == username);
 
-        public async Task<User> GetByPhonNumberAsync(string phoneNumber)
+        public async ValueTask<User> GetByPhoneNumberAsync(string phoneNumber)
             => await dbContext.Users.FirstOrDefaultAsync(user => user.PhoneNumber == phoneNumber);
-        
     }
 }

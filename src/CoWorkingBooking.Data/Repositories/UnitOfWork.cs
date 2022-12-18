@@ -1,12 +1,11 @@
-﻿using CoWorkingBooking.Data.Contexts;
+using CoWorkingBooking.Data.Contexts;
 using CoWorkingBooking.Data.IRepositories;
-using CoWorkingBooking.Domain.Entities.CoWorkings;
-using CoWorkingBooking.Domain.Entities.Orders;
-using CoWorkingBooking.Domain.Entities.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using CoWorkingBooking.Data.IRepositories.CoWorkings;
+using CoWorkingBooking.Data.IRepositories.Orders;
+using CoWorkingBooking.Data.IRepositories.Users;
+using CoWorkingBooking.Data.Repositories.CoWorkings;
+using CoWorkingBooking.Data.Repositories.Orders;
+using RaqamliAvlod.DataAccess.Repositories.Users;
 using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Data.Repositories
@@ -18,25 +17,24 @@ namespace CoWorkingBooking.Data.Repositories
         public UnitOfWork(CoWorkingDbContext dbContext)
         {
             this.dbContext = dbContext;
-            Users = new GenericRepository<User>(dbContext);
-            CoWorkings = new GenericRepository<CoWorking>(dbContext);
-            Branches = new GenericRepository<Branch>(dbContext);
-            Orders = new GenericRepository<Order>(dbContext);
-            Seats = new GenericRepository<Seat>(dbContext);
-            Payments = new GenericRepository<Payment>(dbContext);
+            Users = new UserRepository(dbContext);
+            CoWorkings = new CoWorkingRepository(dbContext);
+            Branches = new BranchRepository(dbContext);
+            Orders = new OrderRepository(dbContext);
+            Seats = new SeatRepository(dbContext);
         }
 
-        public IGenericRepository<User> Users { get; }
+        public IUserRepository Users { get; }
 
-        public IGenericRepository<CoWorking> CoWorkings { get; }
+        public ICoWorkingRepository CoWorkings { get; }
 
-        public IGenericRepository<Branch> Branches { get; }
+        public IBranchRepository Branches { get; }
 
-        public IGenericRepository<Order> Orders { get; }
+        public IOrderRepository Orders { get; }
 
-        public IGenericRepository<Seat> Seats { get; }
+        public ISeatRepository Seats { get; }
 
-        public IGenericRepository<Payment> Payments { get; }
+
 
         public async ValueTask SaveChangesAsync()
         {

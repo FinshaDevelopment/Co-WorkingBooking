@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CoWorkingBooking.Service.DTOs.CoWorkings
 {
-    public class CoWorkingForCreationDto
+    public class CoWorkingForCreationDTO
     {
         [Required]
         public long BranchId { get; set; }
