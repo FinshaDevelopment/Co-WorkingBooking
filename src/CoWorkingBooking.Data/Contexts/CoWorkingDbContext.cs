@@ -23,6 +23,9 @@ namespace CoWorkingBooking.Data.Contexts
             modelBuilder.Entity<User>()
                .HasIndex(u => u.Username)
                .IsUnique();
+            modelBuilder.Entity<Branch>()
+                .HasIndex(b => b.Name)
+                .IsUnique();
         }
     }
 }

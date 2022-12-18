@@ -25,6 +25,10 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
 
         public async ValueTask<BranchForViewDTO> CreateAsync(BranchForCreationDTO branchForCreationDTO)
         {
+            var alreadyExistBranch = await unitOfWork.Branches.GetAsync(b => b.Name == branchForCreationDTO.Name);
+
+            if (alreadyExistBranch is not null)
+                throw new CoWorkingException(400,"Such branch already exist");
             var branch = await unitOfWork.Branches.CreateAsync(branchForCreationDTO.Adapt<Branch>());
             await unitOfWork.SaveChangesAsync();
             return branch.Adapt<BranchForViewDTO>();
@@ -50,14 +54,21 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             return branch ?? throw new CoWorkingException(404, "Branch not foud");
         }
 
-        public async ValueTask<BranchForViewDTO> UpdateAsync(int id, BranchForCreationDTO coWorkingForCreationDTO)
+        public async ValueTask<BranchForViewDTO> UpdateAsync(int id, BranchForCreationDTO branchForCreationDTO)
         {
             var branch = await unitOfWork.Branches.GetAsync(o => o.Id == id);
 
-            if (coWorkingForCreationDTO is null)
+            if (branch is null)
+                throw new CoWorkingException(404,"Branch not found");
 
-                branch.UpdatedAt = DateTime.UtcNow;
-            branch = unitOfWork.Branches.Update(coWorkingForCreationDTO.Adapt(branch));
+            var alreadyExist = await unitOfWork.Branches.GetAsync(b => b.Name == branchForCreationDTO.Name);
+
+            if (alreadyExist is not null && alreadyExist.Id != id)
+                throw new CoWorkingException(400, "Branch already exist");
+
+
+            branch.UpdatedAt = DateTime.UtcNow;
+            branch = unitOfWork.Branches.Update(branchForCreationDTO.Adapt(branch));
 
 
             await unitOfWork.SaveChangesAsync();
