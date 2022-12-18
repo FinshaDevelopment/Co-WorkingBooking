@@ -10,16 +10,15 @@ namespace CoWorkingBooking.Service.Interfaces.Orders
 {
     public interface IOrderService
     {
-        ValueTask<Order> CreateAsync(OrderForCreationDTO orderForCreationDTO);
+        ValueTask<OrderForViewDTO> CreateAsync(OrderForCreationDTO orderForCreationDTO);
 
-        ValueTask<Order> UpdateAsync(int id, OrderForCreationDTO orderForCreationDTO);
+        ValueTask<OrderForViewDTO> UpdateAsync(int id, OrderForCreationDTO orderForCreationDTO);
 
-        ValueTask<bool> DeleteAsync(Expression<Func<Order, bool>> expression);
+        ValueTask<bool> DeleteAsync(long id);
 
-        ValueTask<IEnumerable<Order>> GetAllAsync(
-            PaginationParams @params = null,
-            Expression<Func<Order, bool>> expression = null);
+        ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(
+            PaginationParams @params );
 
-        ValueTask<Order> GetAsync(Expression<Func<Order, bool>> expression);
+        ValueTask<OrderForViewDTO> GetAsync(Expression<Func<Order, bool>> expression);
     }
 }

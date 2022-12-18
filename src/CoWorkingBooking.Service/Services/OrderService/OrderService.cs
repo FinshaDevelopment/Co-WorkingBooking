@@ -6,6 +6,7 @@ using CoWorkingBooking.Service.DTOs.Users;
 using CoWorkingBooking.Service.Exceptions;
 using CoWorkingBooking.Service.Extensions;
 using CoWorkingBooking.Service.Helpers;
+using CoWorkingBooking.Service.Interfaces.Orders;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,11 +18,11 @@ using System.Threading.Tasks;
 
 namespace orderBooking.Service.Services.Orderervice
 {
-    public class Orderervice
+    public class OrderService : IOrderService
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public Orderervice(IUnitOfWork unitOfWork)
+        public OrderService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
@@ -43,9 +44,9 @@ namespace orderBooking.Service.Services.Orderervice
             return isDeleted ? true : throw new CoWorkingException(404, "Order not found");
         }
 
-        public async ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(PaginationParams @params = null, Expression<Func<Order, bool>> expression = null)
+        public async ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(PaginationParams @params)
         {
-            var Order = unitOfWork.Orders.GetAll(expression: expression, new string[] { "Order", "Seat" }, false);
+            var Order = unitOfWork.Orders.GetAll(includes: new string[] { "Order", "Seat" },isTracking: false);
 
             return (await Order.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<OrderForViewDTO>>();
         }

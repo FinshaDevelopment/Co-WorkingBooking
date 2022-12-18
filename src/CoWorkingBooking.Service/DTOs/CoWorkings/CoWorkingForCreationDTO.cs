@@ -2,7 +2,7 @@
 
 namespace CoWorkingBooking.Service.DTOs.CoWorkings
 {
-    public class CoWorkingForCreationDto
+    public class CoWorkingForCreationDTO
     {
         [Required]
         public long BranchId { get; set; }

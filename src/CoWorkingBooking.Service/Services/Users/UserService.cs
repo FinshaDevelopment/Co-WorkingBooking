@@ -87,14 +87,21 @@ namespace CoWorkingBooking.Service.Services.Users
             return (await users.ToPagedList(@params).ToListAsync()).Adapt<List<UserForViewDTO>>();
         }
 
-        public ValueTask<IEnumerable<UserForViewDTO>> GetAllAsync(PaginationParams @params, Expression<Func<User, bool>> expression = null)
+        public async ValueTask<IEnumerable<UserForViewDTO>> GetAllAsync(PaginationParams @params, Expression<Func<User, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            var users = unitOfWork.Users.GetAll(expression: expression, isTracking: false, includes: new string[] { "Address" });
+
+            return (await users.ToPagedList(@params).ToListAsync()).Adapt<List<UserForViewDTO>>();
         }
 
-        public ValueTask<UserForViewDTO> GetAsync(Expression<Func<User, bool>> expression)
+        public async ValueTask<UserForViewDTO> GetAsync(Expression<Func<User, bool>> expression)
         {
-            throw new NotImplementedException();
+            var user = await unitOfWork.Users.GetAsync(expression);
+
+            if (user is null)
+                throw new CoWorkingException(404, "User not found");
+
+            return user.Adapt<UserForViewDTO>();
         }
 
         public async ValueTask<UserForViewDTO> GetIdAsync(long id)
