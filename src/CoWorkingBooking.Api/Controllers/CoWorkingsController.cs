@@ -1,6 +1,4 @@
 ﻿using CoWorkingBooking.Domain.Configurations;
-using CoWorkingBooking.Domain.Entities.CoWorkings;
-using CoWorkingBooking.Service.DTOs.Branches;
 using CoWorkingBooking.Service.DTOs.CoWorkings;
 using CoWorkingBooking.Service.Interfaces.CoWorkings;
 using Microsoft.AspNetCore.Http;
@@ -38,8 +36,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// <summary>
         /// Get Co-Working by id
         /// </summary>
-        [HttpGet("{Id}")]
-        public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
+        [HttpGet("{id}")]
+        public async ValueTask<IActionResult> GetAsync([FromRoute] long id)
             => Ok(await service.GetAsync(coWorking => coWorking.Id == id));
 
         /// <summary>

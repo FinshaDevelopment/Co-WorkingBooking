@@ -1,4 +1,4 @@
-using CoWorkingBooking.Api.BackgroundServices;
+using CoWorkingBooking.Api;
 using CoWorkingBooking.Api.Extensions;
 using CoWorkingBooking.Api.Middlewares;
 using CoWorkingBooking.Data.Contexts;
