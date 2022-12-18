@@ -69,6 +69,8 @@ if (app.Services.GetService<IHttpContextAccessor>() != null)
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
