@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using CoWorkingBooking.Api;
->>>>>>> abacc5a62d6de41c7b9b51723cb90e404cf6b55a
 using CoWorkingBooking.Api.Extensions;
 using CoWorkingBooking.Api.Middlewares;
 using CoWorkingBooking.Data.Contexts;

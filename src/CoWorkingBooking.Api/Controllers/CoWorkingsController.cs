@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 ﻿using CoWorkingBooking.Api.Helpers;
 using CoWorkingBooking.Domain.Configurations;
-=======
-﻿using CoWorkingBooking.Domain.Configurations;
->>>>>>> abacc5a62d6de41c7b9b51723cb90e404cf6b55a
 using CoWorkingBooking.Service.DTOs.CoWorkings;
 using CoWorkingBooking.Service.Interfaces.CoWorkings;
 using Microsoft.AspNetCore.Authorization;

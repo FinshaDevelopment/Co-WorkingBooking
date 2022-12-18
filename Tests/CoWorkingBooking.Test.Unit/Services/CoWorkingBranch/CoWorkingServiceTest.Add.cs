@@ -3,12 +3,12 @@ using CoWorkingBooking.Service.DTOs.CoWorkings;
 using FluentAssertions;
 using Xunit;
 
-namespace CoWorkingBooking.Test.Unit.Services.CoWorking
+namespace CoWorkingBooking.Test.Unit.Services.CoWorkingBranch
 {
     public partial class CoWorkingServiceTest
     {
         [Fact]
-        public async ValueTask ShouldDeleteUserById()
+        public async ValueTask ShouldCreateCoWorking()
         {
             // given
 
@@ -17,20 +17,18 @@ namespace CoWorkingBooking.Test.Unit.Services.CoWorking
             BranchForCreationDTO randomBranch = CreateRandomBranch(new BranchForCreationDTO());
             // when
 
-            var createdBranch = await branchService.CreateAsync(branchForCreationDTO: randomBranch);
+            var createdBranch = await branchService.CreateAsync(randomBranch);
 
             randomCoWorking.BranchId = createdBranch.Id;
 
             var createdCoWorking = await coWorkingService.CreateAsync(randomCoWorking);
 
-            bool isDeletedBranch = await branchService.DeleteAsync(createdBranch.Id);
-
-            bool isDeletedCoWorking = await coWorkingService.DeleteAsync(createdCoWorking.Id);
             // then
 
-            isDeletedBranch.Should().BeTrue();
-            isDeletedCoWorking.Should().BeTrue();
+            createdBranch.Should().NotBeNull();
+            createdCoWorking.Should().NotBeNull();
 
+            createdCoWorking.Floor.Should().Be(randomCoWorking.Floor);
         }
     }
 }

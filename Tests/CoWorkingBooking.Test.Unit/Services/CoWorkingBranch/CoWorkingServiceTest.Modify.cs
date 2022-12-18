@@ -1,14 +1,16 @@
-﻿using CoWorkingBooking.Service.DTOs.Branches;
+﻿using CoWorkingBooking.Domain.Entities.CoWorkings;
+using CoWorkingBooking.Service.DTOs.Branches;
 using CoWorkingBooking.Service.DTOs.CoWorkings;
 using FluentAssertions;
+using Mapster;
 using Xunit;
 
-namespace CoWorkingBooking.Test.Unit.Services.CoWorking
+namespace CoWorkingBooking.Test.Unit.Services.CoWorkingBranch
 {
     public partial class CoWorkingServiceTest
     {
         [Fact]
-        public async ValueTask ShouldCreateCoWorking()
+        public async ValueTask ShouldModifyCoWorkingById() 
         {
             // given
 
@@ -23,10 +25,15 @@ namespace CoWorkingBooking.Test.Unit.Services.CoWorking
 
             var createdCoWorking = await coWorkingService.CreateAsync(randomCoWorking);
 
+            createdCoWorking.Price = Faker.RandomNumber.Next();
+
+            var updatedCoWorking = await coWorkingService.UpdateAsync(createdCoWorking.Id,createdCoWorking.Adapt<CoWorkingForCreationDTO>());
             // then
 
             createdBranch.Should().NotBeNull();
             createdCoWorking.Should().NotBeNull();
+            updatedCoWorking.Should().NotBeNull();
+            updatedCoWorking.Price.Should().NotBe(createdCoWorking.Price);
 
             createdCoWorking.Floor.Should().Be(randomCoWorking.Floor);
         }

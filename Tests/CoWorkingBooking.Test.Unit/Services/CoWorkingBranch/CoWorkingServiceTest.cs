@@ -8,7 +8,7 @@ using CoWorkingBooking.Service.Services.CoWorkings;
 using CoWorkingBooking.Service.Services.OrderService;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoWorkingBooking.Test.Unit.Services.CoWorking
+namespace CoWorkingBooking.Test.Unit.Services.CoWorkingBranch
 {
     public partial class CoWorkingServiceTest
     {
@@ -34,8 +34,7 @@ namespace CoWorkingBooking.Test.Unit.Services.CoWorking
         private CoWorkingForCreationDTO CreateRandomCoWorking(CoWorkingForCreationDTO coWorkingForCreationDTO)
         {
             coWorkingForCreationDTO.Floor = (byte)Faker.RandomNumber.Next(0, 30);
-            coWorkingForCreationDTO.NumberOfSeats = (byte)Faker.RandomNumber.Next(0, 15);
-            coWorkingForCreationDTO.Price = (decimal)Faker.RandomNumber.Next();
+            coWorkingForCreationDTO.Price = Faker.RandomNumber.Next();
 
             return coWorkingForCreationDTO;
         }
