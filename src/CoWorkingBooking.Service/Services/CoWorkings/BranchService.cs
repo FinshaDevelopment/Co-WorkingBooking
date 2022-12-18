@@ -54,7 +54,7 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             return branch ?? throw new CoWorkingException(404, "Branch not foud");
         }
 
-        public async ValueTask<BranchForViewDTO> UpdateAsync(int id, BranchForCreationDTO branchForCreationDTO)
+        public async ValueTask<BranchForViewDTO> UpdateAsync(long id, BranchForCreationDTO branchForCreationDTO)
         {
             var branch = await unitOfWork.Branches.GetAsync(o => o.Id == id);
 
