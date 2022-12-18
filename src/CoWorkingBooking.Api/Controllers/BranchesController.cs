@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/branches")]
     [ApiController]
     public class BranchesController : ControllerBase
     {

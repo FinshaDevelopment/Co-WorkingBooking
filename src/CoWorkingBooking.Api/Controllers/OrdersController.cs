@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     [ApiController]
     public class OrdersController : ControllerBase
     {

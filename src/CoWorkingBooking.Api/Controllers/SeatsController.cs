@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/seats")]
     [ApiController]
     public class SeatsController : ControllerBase
     {
@@ -37,6 +37,15 @@ namespace CoWorkingBooking.Api.Controllers
         public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
+
+        /// <summary>
+        ///  Sorted Chairs starting from free till less most busy
+        /// </summary>
+        [HttpGet("sorted")]
+        public IActionResult SortByBookedTime() =>
+            Ok(service.SortByBookedTime());
+        
+        
         /// <summary>
         /// Get seat by id
         /// </summary>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/coWorkings")]
     [ApiController]
     public class CoWorkingsController : ControllerBase
     {
@@ -38,7 +38,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <summary>
         /// Get Co-Working by id
         /// </summary>
-        [HttpGet("{Id}")]
+        [HttpGet("{id}")]
         public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
             => Ok(await service.GetAsync(coWorking => coWorking.Id == id));
 

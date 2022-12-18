@@ -13,6 +13,7 @@ namespace CoWorkingBooking.Service.Interfaces.CoWorkings
 {
     public interface ISeatService
     {
+
         ValueTask<SeatForViewDTO> CreateAsync(SeatForCreationDTO seatForCreationDTO);
 
         ValueTask<SeatForViewDTO> UpdateAsync(long id, SeatForCreationDTO seatForCreationDTO);
@@ -23,5 +24,6 @@ namespace CoWorkingBooking.Service.Interfaces.CoWorkings
             PaginationParams @params = null);
 
         ValueTask<SeatForViewDTO> GetAsync(Expression<Func<Seat, bool>> expression);
+        IEnumerable<SeatForViewDTO> SortByBookedTime();
     }
 }

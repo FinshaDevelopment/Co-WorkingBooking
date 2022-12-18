@@ -9,6 +9,7 @@ using Mapster;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -69,6 +70,14 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
         {
             var seat = (await unitOfWork.Seats.GetAsync(expression, new string[] { "CoWorking" })).Adapt<SeatForViewDTO>();
             return seat ?? throw new CoWorkingException(404, "Seat not foud");
+        }
+
+        public IEnumerable<SeatForViewDTO> SortByBookedTime()
+        {
+            var seats = unitOfWork.Seats.GetAll(includes: new string[] { "CoWorking" }, isTracking: false).Adapt<IEnumerable<SeatForViewDTO>>();
+
+            return seats.Where(s => !s.IsBooked).Concat(seats.Where(s => s.IsBooked));
+            
         }
 
         public async ValueTask<SeatForViewDTO> UpdateAsync(long id, SeatForCreationDTO seatForCreationDTO)
