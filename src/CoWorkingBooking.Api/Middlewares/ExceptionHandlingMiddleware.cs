@@ -16,7 +16,7 @@ namespace CoWorkingBooking.Api.Middlewares
             this.logger = logger;
         }
 
-        public async ValueTask InvokeAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             try
             {

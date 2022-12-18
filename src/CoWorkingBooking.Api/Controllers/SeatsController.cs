@@ -24,46 +24,36 @@ namespace CoWorkingBooking.Api.Controllers
 
 
         /// <summary>
-        /// create seat
+        /// Create seat
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPost, Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> CreateAsync([FromBody] SeatForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
-        // <summary>
+        /// <summary>
         /// Get all seats
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpGet]
         public async ValueTask<IActionResult> GetAllAsync([FromBody] PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
-        // <summary>
+        /// <summary>
         /// Get seat by id
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpGet("{id}")]
         public async ValueTask<IActionResult> GetAsync([FromRoute] long id)
             => Ok(await service.GetAsync(seat => seat.Id == id));
 
-        // <summary>
+        /// <summary>
         /// Delete seat by id
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpDelete("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] long id)
            => Ok(await service.DeleteAsync(id));
 
-        // <summary>
+        /// <summary>
         /// Update seat
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPut("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id, [FromBody] SeatForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));

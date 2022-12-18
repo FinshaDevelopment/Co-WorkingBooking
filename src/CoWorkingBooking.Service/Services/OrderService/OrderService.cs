@@ -57,7 +57,7 @@ namespace orderBooking.Service.Services.Orderervice
             return order ?? throw new CoWorkingException(404, "Order not foud");
         }
 
-        public async ValueTask<OrderForViewDTO> UpdateAsync(int id, OrderForCreationDTO orderForCreationDTO)
+        public async ValueTask<OrderForViewDTO> UpdateAsync(long id, OrderForCreationDTO orderForCreationDTO)
         {
             var order = await unitOfWork.Orders.GetAsync(o => o.Id == id);
 

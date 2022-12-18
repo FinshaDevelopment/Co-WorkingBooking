@@ -12,12 +12,12 @@ namespace CoWorkingBooking.Service.Interfaces.Orders
     {
         ValueTask<OrderForViewDTO> CreateAsync(OrderForCreationDTO orderForCreationDTO);
 
-        ValueTask<OrderForViewDTO> UpdateAsync(int id, OrderForCreationDTO orderForCreationDTO);
+        ValueTask<OrderForViewDTO> UpdateAsync(long id, OrderForCreationDTO orderForCreationDTO);
 
         ValueTask<bool> DeleteAsync(long id);
 
         ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(
-            PaginationParams @params );
+            PaginationParams @params);
 
         ValueTask<OrderForViewDTO> GetAsync(Expression<Func<Order, bool>> expression);
     }

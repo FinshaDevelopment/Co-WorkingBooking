@@ -22,46 +22,36 @@ namespace CoWorkingBooking.Api.Controllers
 
 
         /// <summary>
-        /// create CoWorking
+        /// Create Co-Working
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
-        [HttpPost()]
+        [HttpPost]
         public async ValueTask<IActionResult> CreateAsync([FromBody] CoWorkingForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
-        // <summary>
-        /// Get all CoWorkinges
+        /// <summary>
+        /// Get all Co-Workinges
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
-        [HttpGet()]
+        [HttpGet]
         public async ValueTask<IActionResult> GetAllAsync([FromBody] PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
-        // <summary>
-        /// Get CoWorking by id
+        /// <summary>
+        /// Get Co-Working by id
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpGet("{Id}")]
         public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
             => Ok(await service.GetAsync(coWorking => coWorking.Id == id));
 
-        // <summary>
-        /// Delete CoWorking by id
+        /// <summary>
+        /// Delete Co-Working by id
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpDelete("{id}")]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] long id)
            => Ok(await service.DeleteAsync(id));
 
-        // <summary>
-        /// Update CoWorking
+        /// <summary>
+        /// Update Co-Working
         /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id, [FromBody] CoWorkingForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));

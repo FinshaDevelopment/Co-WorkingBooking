@@ -1,0 +1,7 @@
+2022-12-18 09:32:05.711 +05:00 [Fatal] [Microsoft.AspNetCore.Hosting.Diagnostics] [{ Id: 6 }] Application startup exception
+System.InvalidOperationException: 'Invoke' or 'InvokeAsync' does not return an object of type 'Task'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.<ConfigureApplication>b__27_0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
