@@ -21,16 +21,16 @@ namespace CoWorkingBooking.Api.Controllers
 
 
         /// <summary>
-        /// Authorization
+        /// create branch
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpPost("")]
+        [HttpPost()]
         public async ValueTask<IActionResult> CreateAsync([FromBody]BranchForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
         // <summary>
-        /// Authorization
+        /// get all braanches
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
@@ -43,8 +43,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpGet("{branchId}")]
-        public async ValueTask<IActionResult> GetAsync(long id)
+        [HttpGet("{id}")]
+        public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
             => Ok(await service.GetAsync(branch=> branch.Id==id));
 
         // <summary>
