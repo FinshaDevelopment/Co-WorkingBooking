@@ -1,8 +1,8 @@
-﻿using CoWorkingBooking.Domain.Configurations;
+﻿using CoWorkingBooking.Api.Helpers;
+using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Service.DTOs.Branches;
 using CoWorkingBooking.Service.Interfaces.CoWorkings;
-using CoWorkingBooking.Service.Services.CoWorkings;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -24,9 +24,9 @@ namespace CoWorkingBooking.Api.Controllers
         /// create branch
         /// </summary>
         /// <param name="dto"></param>
-        /// <returns></returns>
-        [HttpPost()]
-        public async ValueTask<IActionResult> CreateAsync([FromBody]BranchForCreationDTO dto)
+        /// <returns/>
+        [HttpPost, Authorize(Roles = CustomRoles.ADMIN_ROLE)]
+        public async ValueTask<IActionResult> CreateAsync([FromBody] BranchForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
         // <summary>
@@ -34,7 +34,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpGet()]
+        [HttpGet]
         public async ValueTask<IActionResult> GetAllAsync([FromBody]PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
@@ -44,7 +44,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
+        public async ValueTask<IActionResult> GetAsync([FromRoute] long id)
             => Ok(await service.GetAsync(branch=> branch.Id==id));
 
         // <summary>
@@ -52,8 +52,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
-        public async ValueTask<IActionResult> DeleteAsync([FromRoute]long id)
+        [HttpDelete("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
+        public async ValueTask<IActionResult> DeleteAsync([FromRoute] long id)
            => Ok(await service.DeleteAsync(id));
 
         // <summary>
@@ -61,8 +61,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public async ValueTask<IActionResult> UpdateAsync([FromRoute]long id,[FromBody] BranchForCreationDTO dto)
+        [HttpPut("{id}"), Authorize(CustomRoles.ADMIN_ROLE)]
+        public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id,[FromBody] BranchForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));
 
     }

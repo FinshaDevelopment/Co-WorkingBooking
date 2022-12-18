@@ -18,7 +18,7 @@ namespace CoWorkingBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Authorization
+        /// Authentification
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
