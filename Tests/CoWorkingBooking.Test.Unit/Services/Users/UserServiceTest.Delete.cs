@@ -1,6 +1,7 @@
 ﻿using CoWorkingBooking.Service.DTOs.Users;
 using FluentAssertions;
 using Force.DeepCloner;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace CoWorkingBooking.Test.Unit.Services.Users

@@ -1,10 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -27,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj" />
+    <ProjectReference Include="..\..\src\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj" />
   </ItemGroup>
 
 </Project>
