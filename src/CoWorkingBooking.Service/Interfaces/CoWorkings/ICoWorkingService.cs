@@ -14,7 +14,7 @@ namespace CoWorkingBooking.Service.Interfaces.CoWorkings
     {
         ValueTask<CoWorkingForViewDTO> CreateAsync(CoWorkingForCreationDTO coWorkingForCreationDTO);
 
-        ValueTask<CoWorkingForViewDTO> UpdateAsync(int id, CoWorkingForCreationDTO coWorkingForCreationDTO);
+        ValueTask<CoWorkingForViewDTO> UpdateAsync(long id, CoWorkingForCreationDTO coWorkingForCreationDTO);
 
         ValueTask<bool> DeleteAsync(long id);
 

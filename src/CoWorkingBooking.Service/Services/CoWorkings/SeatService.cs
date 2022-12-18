@@ -50,7 +50,7 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             return seat ?? throw new CoWorkingException(404, "Seat not foud");
         }
 
-        public async ValueTask<SeatForViewDTO> UpdateAsync(int id, SeatForCreationDTO seatForCreationDTO)
+        public async ValueTask<SeatForViewDTO> UpdateAsync(long id, SeatForCreationDTO seatForCreationDTO)
         {
             var seat = await unitOfWork.CoWorkings.GetAsync(o => o.Id == id);
 

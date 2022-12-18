@@ -26,7 +26,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost("")]
-        public async ValueTask<IActionResult> CreateAsync(BranchForCreationDTO dto)
+        public async ValueTask<IActionResult> CreateAsync([FromBody]BranchForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
         // <summary>
@@ -35,7 +35,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpGet()]
-        public async ValueTask<IActionResult> GetAllAsync(PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromBody]PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
         // <summary>
@@ -52,8 +52,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpDelete("{branchId}")]
-        public async ValueTask<IActionResult> DeleteAsync(long id)
+        [HttpDelete("{id}")]
+        public async ValueTask<IActionResult> DeleteAsync([FromRoute]long id)
            => Ok(await service.DeleteAsync(id));
 
         // <summary>
@@ -61,8 +61,8 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        [HttpPut()]
-        public async ValueTask<IActionResult> UpdateAsync(long id, BranchForCreationDTO dto)
+        [HttpPut("{id}")]
+        public async ValueTask<IActionResult> UpdateAsync([FromRoute]long id,[FromBody] BranchForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));
 
     }
