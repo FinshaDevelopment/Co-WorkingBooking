@@ -16,7 +16,7 @@ namespace CoWorkingBooking.Service.Interfaces.Users
     {
         ValueTask<UserForViewDTO> CreateAsync(UserForCreationDTO userForCreationDTO);
 
-        ValueTask<UserForViewDTO> UpdateAsync(string login, string password, UserForUpdateDTO userForUpdateDTO);
+        ValueTask<UserForViewDTO> UpdateAsync(string password, UserForUpdateDTO userForUpdateDTO);
 
         ValueTask<bool> DeleteAsync(long id);
 
@@ -28,6 +28,7 @@ namespace CoWorkingBooking.Service.Interfaces.Users
 
         ValueTask<bool> ChangeRoleAsync(int id, UserRole userRole);
 
-        ValueTask<bool> ChangePasswordAsync(string oldPassword, string newPassword);
+        ValueTask<bool> ChangePasswordAsync(UserForChangePasswordDTO userForChangePasswordDTO);
+        ValueTask<UserForViewDTO> GetInfoAsync();
     }
 }
