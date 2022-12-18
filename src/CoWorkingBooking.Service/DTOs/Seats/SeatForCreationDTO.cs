@@ -8,7 +8,5 @@ namespace CoWorkingBooking.Service.DTOs.Seats
         public int Number { get; set; }
         [Required]
         public long CoworkingId { get; set; }
-        [Required]
-        public bool IsBooked { get; set; }
     }
 }

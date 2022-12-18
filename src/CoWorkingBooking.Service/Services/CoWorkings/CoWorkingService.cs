@@ -51,6 +51,7 @@ namespace CoWorkingBooking.Service.Services.OrderService
         public async ValueTask<CoWorkingForViewDTO> GetAsync(Expression<Func<CoWorking, bool>> expression)
         {
             var coWorking = (await unitOfWork.CoWorkings.GetAsync(expression, new string[] { "Branch" })).Adapt<CoWorkingForViewDTO>();
+           
             return coWorking ?? throw new CoWorkingException(404, "CoWorking not foud");
         }
 

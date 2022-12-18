@@ -10,7 +10,5 @@ namespace CoWorkingBooking.Service.DTOs.CoWorkings
         public byte Floor { get; set; }
         [Required]
         public decimal Price { get; set; }
-        [Required]
-        public int NumberOfSeats { get; set; }
     }
 }
