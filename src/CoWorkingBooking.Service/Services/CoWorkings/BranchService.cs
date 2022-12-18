@@ -27,7 +27,7 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             var alreadyExistBranch = await unitOfWork.Branches.GetAsync(b => b.Name == branchForCreationDTO.Name);
 
             if (alreadyExistBranch is not null)
-                throw new CoWorkingException(400,"Such branch already exist");
+                throw new CoWorkingException(400, "Such branch already exist");
             var branch = await unitOfWork.Branches.CreateAsync(branchForCreationDTO.Adapt<Branch>());
             await unitOfWork.SaveChangesAsync();
             return branch.Adapt<BranchForViewDTO>();
@@ -58,7 +58,7 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             var branch = await unitOfWork.Branches.GetAsync(o => o.Id == id);
 
             if (branch is null)
-                throw new CoWorkingException(404,"Branch not found");
+                throw new CoWorkingException(404, "Branch not found");
 
             var alreadyExist = await unitOfWork.Branches.GetAsync(b => b.Name == branchForCreationDTO.Name);
 

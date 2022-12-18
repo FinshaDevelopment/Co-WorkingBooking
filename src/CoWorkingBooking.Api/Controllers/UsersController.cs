@@ -5,7 +5,6 @@ using CoWorkingBooking.Domain.Enums;
 using CoWorkingBooking.Service.DTOs.Users;
 using CoWorkingBooking.Service.Interfaces.Users;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

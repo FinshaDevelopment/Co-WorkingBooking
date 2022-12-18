@@ -25,7 +25,11 @@ namespace CoWorkingBooking.Service.Services.OrderService
 
         public async ValueTask<CoWorkingForViewDTO> CreateAsync(CoWorkingForCreationDTO coWorkingForCreationDTO)
         {
+            if (await unitOfWork.Branches.GetAsync(b => b.Id == coWorkingForCreationDTO.BranchId) is null)
+                throw new CoWorkingException(404, "Branch not found");
             var coWorking = await unitOfWork.CoWorkings.CreateAsync(coWorkingForCreationDTO.Adapt<CoWorking>());
+
+
             await unitOfWork.SaveChangesAsync();
             return coWorking.Adapt<CoWorkingForViewDTO>();
         }
@@ -56,7 +60,7 @@ namespace CoWorkingBooking.Service.Services.OrderService
 
             if (coWorkingForCreationDTO is null)
 
-            coWorking.UpdatedAt = DateTime.UtcNow;
+                coWorking.UpdatedAt = DateTime.UtcNow;
             coWorking = unitOfWork.CoWorkings.Update(coWorkingForCreationDTO.Adapt(coWorking));
 
 

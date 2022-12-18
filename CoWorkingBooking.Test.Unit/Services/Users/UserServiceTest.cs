@@ -1,22 +1,10 @@
 ﻿using CoWorkingBooking.Data.Contexts;
 using CoWorkingBooking.Data.IRepositories;
-using CoWorkingBooking.Data.IRepositories.Users;
 using CoWorkingBooking.Data.Repositories;
-using CoWorkingBooking.Domain.Entities.Users;
 using CoWorkingBooking.Service.DTOs.Users;
 using CoWorkingBooking.Service.Interfaces.Users;
 using CoWorkingBooking.Service.Services.Users;
-using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Helpers;
-using RaqamliAvlod.DataAccess.Repositories.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Test.Unit.Services.Users
 {

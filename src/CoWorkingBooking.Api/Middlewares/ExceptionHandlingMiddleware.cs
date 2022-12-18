@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CoWorkingBooking.Service.Exceptions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 using System;
-using CoWorkingBooking.Service.Exceptions;
+using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Api.Middlewares
 {

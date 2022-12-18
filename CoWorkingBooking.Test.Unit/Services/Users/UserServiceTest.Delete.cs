@@ -11,13 +11,13 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
         public async ValueTask ShoulDeleteUserById()
         {
             //given
-            
+
             UserForCreationDTO randomUser = CreateRandomUser(new UserForCreationDTO());
-            
+
             UserForCreationDTO inputUser = randomUser;
-            
+
             UserForCreationDTO expectedUser = inputUser.DeepClone();
-            
+
             // when
 
             var actualUser = await userService.CreateAsync(inputUser);
@@ -28,9 +28,9 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
             actualUser.Should().NotBeNull();
 
             actualUser.Username.Should().BeEquivalentTo(expectedUser.Username);
-            
+
             isDeleted.Should().Be(true);
-            
+
             (await userService.GetAsync(u => u.Id == actualUser.Id)).Should().BeNull();
         }
 

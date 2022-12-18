@@ -31,7 +31,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// Get all braanches
         /// </summary>
         [HttpGet]
-        public async ValueTask<IActionResult> GetAllAsync([FromQuery]PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await service.GetAllAsync(@params));
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// </summary>
         [HttpGet("{id}")]
         public async ValueTask<IActionResult> GetAsync([FromRoute] long id)
-            => Ok(await service.GetAsync(branch=> branch.Id==id));
+            => Ok(await service.GetAsync(branch => branch.Id == id));
 
         /// <summary>
         /// Delete branch by id
@@ -52,7 +52,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// Update branch
         /// </summary>
         [HttpPut("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
-        public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id,[FromBody] BranchForCreationDTO dto)
+        public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id, [FromBody] BranchForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));
 
     }

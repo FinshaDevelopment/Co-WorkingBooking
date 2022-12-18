@@ -155,7 +155,7 @@ namespace CoWorkingBooking.Service.Services.Users
             if (alreadyExistUser is not null && alreadyExistUser.Id != user.Id)
                 throw new Exception("Email exists");
 
-            user.UpdatedAt= DateTime.UtcNow;
+            user.UpdatedAt = DateTime.UtcNow;
 
             user = unitOfWork.Users.Update(userForUpdateDTO.Adapt(user));
 

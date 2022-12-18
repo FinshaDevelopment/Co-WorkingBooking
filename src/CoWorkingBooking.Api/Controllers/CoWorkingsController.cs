@@ -1,9 +1,8 @@
-﻿using CoWorkingBooking.Domain.Configurations;
-using CoWorkingBooking.Domain.Entities.CoWorkings;
-using CoWorkingBooking.Service.DTOs.Branches;
+﻿using CoWorkingBooking.Api.Helpers;
+using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Service.DTOs.CoWorkings;
 using CoWorkingBooking.Service.Interfaces.CoWorkings;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -24,7 +23,7 @@ namespace CoWorkingBooking.Api.Controllers
         /// <summary>
         /// Create Co-Working
         /// </summary>
-        [HttpPost]
+        [HttpPost, Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> CreateAsync([FromBody] CoWorkingForCreationDTO dto)
             => Ok(await service.CreateAsync(dto));
 
@@ -39,20 +38,20 @@ namespace CoWorkingBooking.Api.Controllers
         /// Get Co-Working by id
         /// </summary>
         [HttpGet("{id}")]
-        public async ValueTask<IActionResult> GetAsync([FromRoute]long id)
+        public async ValueTask<IActionResult> GetAsync([FromRoute] long id)
             => Ok(await service.GetAsync(coWorking => coWorking.Id == id));
 
         /// <summary>
         /// Delete Co-Working by id
         /// </summary>
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] long id)
            => Ok(await service.DeleteAsync(id));
 
         /// <summary>
         /// Update Co-Working
         /// </summary>
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = CustomRoles.ADMIN_ROLE)]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] long id, [FromBody] CoWorkingForCreationDTO dto)
             => Ok(await service.UpdateAsync(id, dto));
     }

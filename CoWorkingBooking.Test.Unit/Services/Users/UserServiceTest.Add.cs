@@ -1,11 +1,11 @@
 ﻿using CoWorkingBooking.Service.DTOs.Users;
-using FluentAssertions;
 using Force.DeepCloner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 
 namespace CoWorkingBooking.Test.Unit.Services.Users
@@ -22,17 +22,11 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
             // when
 
             var actualUser = await userService.CreateAsync(inputUser);
-            
+
             // then
             actualUser.Username.Should().BeEquivalentTo(inputUser.Username);
             actualUser.FirstName.Should().BeEquivalentTo(inputUser.FirstName);
             actualUser.LastName.Should().BeEquivalentTo(inputUser.LastName);
-        }
-
-        [Fact]
-        public async ValueTask ShouldCreateUserWithAttachment()
-        {
-            // given
         }
     }
 }

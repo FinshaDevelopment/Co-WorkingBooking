@@ -1,13 +1,10 @@
 ﻿using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Domain.Entities.Users;
 using CoWorkingBooking.Domain.Enums;
-using CoWorkingBooking.Service.Attributes.User;
 using CoWorkingBooking.Service.DTOs.Users;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Service.Interfaces.Users

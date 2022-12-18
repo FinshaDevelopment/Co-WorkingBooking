@@ -2,11 +2,6 @@
 using FluentAssertions;
 using Force.DeepCloner;
 using Mapster;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace CoWorkingBooking.Test.Unit.Services.Users
@@ -31,7 +26,7 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
             inputUser.LastName = Faker.Name.Last();
 
 
-            var updatedUser = await userService.UpdateAsync(inputUser.Password,inputUser.Adapt<UserForUpdateDTO>());
+            var updatedUser = await userService.UpdateAsync(inputUser.Password, inputUser.Adapt<UserForUpdateDTO>());
             // then
             actualUser.Should().NotBeNull();
 

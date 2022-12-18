@@ -1,11 +1,9 @@
 ﻿using CoWorkingBooking.Api.Helpers;
 using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Domain.Entities.Orders;
-using CoWorkingBooking.Domain.Enums;
 using CoWorkingBooking.Service.DTOs.Orders;
 using CoWorkingBooking.Service.Interfaces.Orders;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

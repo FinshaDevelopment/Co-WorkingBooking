@@ -2,7 +2,8 @@
 using System.Linq;
 
 namespace CoWorkingBooking.Service.Helpers
-{   public class HttpContextHelper
+{
+    public class HttpContextHelper
     {
         public static IHttpContextAccessor Accessor { get; set; }
         public static HttpContext HttpContext => Accessor?.HttpContext;

@@ -1,10 +1,6 @@
 ﻿using CoWorkingBooking.Service.DTOs.Seats;
 using CoWorkingBooking.Service.DTOs.Users;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Service.DTOs.Orders
 {

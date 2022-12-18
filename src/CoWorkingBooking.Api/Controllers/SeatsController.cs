@@ -1,10 +1,8 @@
 ﻿using CoWorkingBooking.Api.Helpers;
 using CoWorkingBooking.Domain.Configurations;
-using CoWorkingBooking.Service.DTOs.Branches;
 using CoWorkingBooking.Service.DTOs.Seats;
 using CoWorkingBooking.Service.Interfaces.CoWorkings;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -44,8 +42,8 @@ namespace CoWorkingBooking.Api.Controllers
         [HttpGet("sorted")]
         public IActionResult SortByBookedTime() =>
             Ok(service.SortByBookedTime());
-        
-        
+
+
         /// <summary>
         /// Get seat by id
         /// </summary>

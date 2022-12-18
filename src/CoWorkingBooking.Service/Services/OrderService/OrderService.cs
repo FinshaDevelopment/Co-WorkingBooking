@@ -10,9 +10,7 @@ using Mapster;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace orderBooking.Service.Services.Orderervice
@@ -33,13 +31,13 @@ namespace orderBooking.Service.Services.Orderervice
             var existSeats = await unitOfWork.Seats.GetAsync(o => o.Id == orderForCreationDTO.SeatId);
 
             if (existSeats is null)
-                throw new CoWorkingException(404,"Seat not found");
+                throw new CoWorkingException(404, "Seat not found");
 
             existSeats.FromDate = orderForCreationDTO.FromDate;
             existSeats.Time = orderForCreationDTO.Time;
 
             unitOfWork.Seats.Update(existSeats);
-            
+
             var order = await unitOfWork.Orders.CreateAsync(orderForCreationDTO.Adapt<Order>());
             await unitOfWork.SaveChangesAsync();
             return order.Adapt<OrderForViewDTO>();
@@ -54,7 +52,7 @@ namespace orderBooking.Service.Services.Orderervice
 
         public async ValueTask<IEnumerable<OrderForViewDTO>> GetAllAsync(PaginationParams @params)
         {
-            var order = unitOfWork.Orders.GetAll(includes: new string[] { "User", "Seat" },isTracking: false);
+            var order = unitOfWork.Orders.GetAll(includes: new string[] { "User", "Seat" }, isTracking: false);
 
             return (await order.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<OrderForViewDTO>>();
         }
@@ -69,7 +67,7 @@ namespace orderBooking.Service.Services.Orderervice
         {
             var order = await unitOfWork.Orders.GetAsync(o => o.Id == id);
 
-            if(order.UserId != HttpContextHelper.UserId)
+            if (order.UserId != HttpContextHelper.UserId)
                 throw new CoWorkingException(404, "Order not found");
 
             order.UpdatedAt = DateTime.UtcNow;

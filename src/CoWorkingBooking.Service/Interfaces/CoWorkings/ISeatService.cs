@@ -1,12 +1,9 @@
 ﻿using CoWorkingBooking.Domain.Configurations;
 using CoWorkingBooking.Domain.Entities.CoWorkings;
-using CoWorkingBooking.Service.DTOs.CoWorkings;
 using CoWorkingBooking.Service.DTOs.Seats;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Service.Interfaces.CoWorkings

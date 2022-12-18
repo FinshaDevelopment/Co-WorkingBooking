@@ -1,13 +1,7 @@
 ﻿using CoWorkingBooking.Domain.Configurations;
-using CoWorkingBooking.Domain.Entities.Users;
 using CoWorkingBooking.Service.DTOs.Users;
 using FluentAssertions;
 using Force.DeepCloner;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace CoWorkingBooking.Test.Unit.Services.Users
@@ -37,8 +31,8 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
         {
             // given
 
-            
-            
+
+
             int number = Faker.RandomNumber.Next(0, 30);
 
             UserForCreationDTO[] usersForCreation = new UserForCreationDTO[number];
@@ -51,7 +45,7 @@ namespace CoWorkingBooking.Test.Unit.Services.Users
 
             // when
             UserForViewDTO[] createdUsers = new UserForViewDTO[number];
-           
+
             for (int i = 0; i < number; i++)
             {
                 createdUsers[i] = await userService.CreateAsync(usersForCreation[i]);
