@@ -25,18 +25,18 @@ namespace CoWorkingBooking.Service.Services.Users
             this.unitOfWork = unitOfWork;
         }
 
-        public async ValueTask<bool> ChangePasswordAsync(string oldPassword, string newPassword)
+        public async ValueTask<bool> ChangePasswordAsync(UserForChangePasswordDTO changePasswordDTO)
         {
             var user = await unitOfWork.Users.GetAsync(u => u.Id == HttpContextHelper.UserId);
 
             if (user == null)
                 throw new CoWorkingException(404, "User not found");
 
-            if (user.Password != oldPassword.Encrypt())
+            if (user.Password != changePasswordDTO.OldPassword.Encrypt())
             {
                 throw new CoWorkingException(400, "Password is Incorrect");
             }
-            user.Password = newPassword.Encrypt();
+            user.Password = changePasswordDTO.NewPassword.Encrypt();
 
             unitOfWork.Users.Update(user);
             await unitOfWork.SaveChangesAsync();
@@ -116,6 +116,9 @@ namespace CoWorkingBooking.Service.Services.Users
             return userView;
         }
 
+        public async ValueTask<UserForViewDTO> GetInfoAsync() =>
+            (await unitOfWork.Users.GetAsync(u => u.Id == HttpContextHelper.UserId)).Adapt<UserForViewDTO>();
+
         public async ValueTask<UserForViewDTO> GetUsernameAsync(string username)
         {
             var user = await unitOfWork.Users.GetByUsernameAsync(username);
@@ -131,9 +134,9 @@ namespace CoWorkingBooking.Service.Services.Users
 
 
 
-        public async ValueTask<UserForViewDTO> UpdateAsync(string login, string password, UserForUpdateDTO userForUpdateDTO)
+        public async ValueTask<UserForViewDTO> UpdateAsync(string password, UserForUpdateDTO userForUpdateDTO)
         {
-            var user = await unitOfWork.Users.GetAsync(u => u.Username == login && u.Password == password.Encrypt());
+            var user = await unitOfWork.Users.GetAsync(u => u.Id == HttpContextHelper.UserId && u.Password == password.Encrypt());
 
             if (user is null)
                 throw new Exception("User doesn't exist");

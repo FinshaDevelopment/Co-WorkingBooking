@@ -12,7 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using orderBooking.Service.Services.Orderervice;
+using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CoWorkingBooking.Api.Extensions
@@ -64,6 +67,10 @@ namespace CoWorkingBooking.Api.Extensions
         {
             services.AddSwaggerGen(p =>
             {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                p.IncludeXmlComments(xmlPath);
+
                 p.ResolveConflictingActions(ad => ad.FirstOrDefault());
                 p.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
