@@ -60,7 +60,6 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
             seat.UpdatedAt = DateTime.UtcNow;
             seat = unitOfWork.CoWorkings.Update(seatForCreationDTO.Adapt(seat));
 
-
             await unitOfWork.SaveChangesAsync();
 
             return seat.Adapt<SeatForViewDTO>();

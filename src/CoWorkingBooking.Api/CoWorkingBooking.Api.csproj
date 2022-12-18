@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.12" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,10 +16,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoWorkingBooking.Data\CoWorkingBooking.Data.csproj" />
+    <ProjectReference Include="..\CoWorkingBooking.Service\CoWorkingBooking.Service.csproj" />
 
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

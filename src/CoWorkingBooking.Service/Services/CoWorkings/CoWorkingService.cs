@@ -25,9 +25,9 @@ namespace CoWorkingBooking.Service.Services.OrderService
 
         public async ValueTask<CoWorkingForViewDTO> CreateAsync(CoWorkingForCreationDTO coWorkingForCreationDTO)
         {
-            var order = await unitOfWork.CoWorkings.CreateAsync(coWorkingForCreationDTO.Adapt<CoWorking>());
+            var coWorking = await unitOfWork.CoWorkings.CreateAsync(coWorkingForCreationDTO.Adapt<CoWorking>());
             await unitOfWork.SaveChangesAsync();
-            return order.Adapt<CoWorkingForViewDTO>();
+            return coWorking.Adapt<CoWorkingForViewDTO>();
         }
 
         public async ValueTask<bool> DeleteAsync(long id)
@@ -39,30 +39,30 @@ namespace CoWorkingBooking.Service.Services.OrderService
 
         public async ValueTask<IEnumerable<CoWorkingForViewDTO>> GetAllAsync(PaginationParams @params)
         {
-            var Order = unitOfWork.CoWorkings.GetAll(includes: new string[] { "Order", "Seat" }, isTracking: false);
+            var coWorking = unitOfWork.CoWorkings.GetAll(includes: new string[] { "Branch" }, isTracking: false);
 
-            return (await Order.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<CoWorkingForViewDTO>>();
+            return (await coWorking.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<CoWorkingForViewDTO>>();
         }
 
         public async ValueTask<CoWorkingForViewDTO> GetAsync(Expression<Func<CoWorking, bool>> expression)
         {
-            var order = (await unitOfWork.CoWorkings.GetAsync(expression, new string[] { "Order", "Seat" })).Adapt<CoWorkingForViewDTO>();
-            return order ?? throw new CoWorkingException(404, "CoWorking not foud");
+            var coWorking = (await unitOfWork.CoWorkings.GetAsync(expression, new string[] { "Branch" })).Adapt<CoWorkingForViewDTO>();
+            return coWorking ?? throw new CoWorkingException(404, "CoWorking not foud");
         }
 
         public async ValueTask<CoWorkingForViewDTO> UpdateAsync(int id, CoWorkingForCreationDTO coWorkingForCreationDTO)
         {
-            var order = await unitOfWork.CoWorkings.GetAsync(o => o.Id == id);
+            var coWorking = await unitOfWork.CoWorkings.GetAsync(o => o.Id == id);
 
             if (coWorkingForCreationDTO is null)
 
-            order.UpdatedAt = DateTime.UtcNow;
-            order = unitOfWork.CoWorkings.Update(coWorkingForCreationDTO.Adapt(order));
+            coWorking.UpdatedAt = DateTime.UtcNow;
+            coWorking = unitOfWork.CoWorkings.Update(coWorkingForCreationDTO.Adapt(coWorking));
 
 
             await unitOfWork.SaveChangesAsync();
 
-            return order.Adapt<CoWorkingForViewDTO>();
+            return coWorking.Adapt<CoWorkingForViewDTO>();
         }
     }
 }

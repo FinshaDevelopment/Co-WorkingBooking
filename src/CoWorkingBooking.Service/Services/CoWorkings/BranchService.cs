@@ -4,18 +4,18 @@ using CoWorkingBooking.Domain.Entities.CoWorkings;
 using CoWorkingBooking.Service.DTOs.Branches;
 using CoWorkingBooking.Service.Exceptions;
 using CoWorkingBooking.Service.Extensions;
+using CoWorkingBooking.Service.Interfaces.CoWorkings;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoWorkingBooking.Service.Services.CoWorkings
 {
-    public class BranchService 
+    public class BranchService : IBranchService
     {
         private readonly IUnitOfWork unitOfWork;
         public BranchService(IUnitOfWork unitOfWork)
@@ -43,14 +43,14 @@ namespace CoWorkingBooking.Service.Services.CoWorkings
 
         public async ValueTask<IEnumerable<BranchForViewDTO>> GetAllAsync(PaginationParams @params)
         {
-            var branch = unitOfWork.Branches.GetAll(includes: new string[] { "Order", "Seat" }, isTracking: false);
+            var branch = unitOfWork.Branches.GetAll(isTracking: false);
 
             return (await branch.ToPagedList(@params).ToListAsync()).Adapt<IEnumerable<BranchForViewDTO>>();
         }
 
         public async ValueTask<BranchForViewDTO> GetAsync(Expression<Func<Branch, bool>> expression)
         {
-            var branch = (await unitOfWork.Branches.GetAsync(expression, new string[] { "Order", "Seat" })).Adapt<BranchForViewDTO>();
+            var branch = (await unitOfWork.Branches.GetAsync(expression)).Adapt<BranchForViewDTO>();
             return branch ?? throw new CoWorkingException(404, "Branch not foud");
         }
 
